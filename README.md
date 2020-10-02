@@ -28,7 +28,7 @@ Para que seja possível executar o software em uma máquina é necessário que o
 
 ## Passos para a instalação
 
-1. Execute o comando a seguir no diretório "/data/www", para clonar o projeto
+1. Execute o comando a seguir para clonar o projeto
 
 ```
 git clone https://github.com/jessicamedeirosp/api-themoviedb.git
