@@ -1,61 +1,66 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+## Sobre o Projeto
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+A api “api-themoviedb” foi desenvolvido com a linguagem de programação PHP, utilizando o framework Laravel 7 e conceitos de API Rest. A aplicação consiste em uma API que possibilita consultar os filmes e genêros de outra api (https://developers.themoviedb.org/3).
 
-## About Laravel
+# Endpoint
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Endpoint que obtém uma lista dos próximos filmes, utilizando páginação (20 por página).
+- Endpoint que obtém uma lista dos filmes mais bem avaliados, utilizando páginação (20 por página).
+- Endpoint que obtém filme específico e todos os vídeos relacionados a ele.
+- Endpoint que obtém uma lista de gêneros ou único gênero por id.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+# Links para acessar os dados
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- /api/movie/upcoming
+- /api/movie/top-rated
+- /api/movie/550
+- /api/genre/movie/list
+- /api/genre/18
 
-## Learning Laravel
+## Requisitos
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Para que seja possível executar o software em uma máquina é necessário que os seguintes pacotes estejam instalados e configurados:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Apache
+- PHP^7
+- Git
+- Composer
 
-## Laravel Sponsors
+## Passos para a instalação
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+1. Execute o comando a seguir no diretório "/data/www", para clonar o projeto
 
-### Premium Partners
+```
+git clone https://github.com/jessicamedeirosp/api-themoviedb.git
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+2. Execute os seguintes comandos na raiz do projeto para baixar as dependencias do projeto
 
-## Contributing
+```
+php composer.phar install
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+ou 
 
-## Code of Conduct
+```
+php composer install
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+3. Configurar token:
+- Você precisará acessar o site do themoviedb e criar uma conta para gerar o token. 
+- É necessário utilizar token na v4. 
+- Adicione na ultima linha do arquivo .env
 
-## Security Vulnerabilities
+```
+TMDB_TOKEN=COLE_SEU_TOKEN_AQUI
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+4. Abra a linha de comando no diretório raiz da aplicação e execute o seguinte comando:
 
-## License
+```
+php artisan serve
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+OBS: Para verificar os dados você pode utilizar o Browser ou o Postman.
+
+
