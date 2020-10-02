@@ -18,4 +18,14 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::get('/filmes','MoviesController@index');
+Route::group(['prefix' => 'movie'], function() {
+    Route::get('/upcoming','MoviesController@searchMoviesUpcoming');
+    Route::get('/top-rated','MoviesController@searchMoviesTopRated');
+    Route::get('/{movieId}','MoviesController@searchMovie');
+   
+});
+Route::group(['prefix' => 'genre'], function() {   
+    Route::get('/movie/list','MoviesController@searchGenreList');   
+    Route::get('/{genreId}','MoviesController@searchGenre');   
+});
+
