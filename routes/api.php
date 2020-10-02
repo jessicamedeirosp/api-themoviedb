@@ -21,11 +21,11 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => 'movie'], function() {
     Route::get('/upcoming','MoviesController@searchMoviesUpcoming');
     Route::get('/top-rated','MoviesController@searchMoviesTopRated');
-    Route::get('/{movieId}','MoviesController@searchMovie');
+    Route::get('/{movieId}','MoviesController@searchMovieList');
    
 });
 Route::group(['prefix' => 'genre'], function() {   
-    Route::get('/movie/list','MoviesController@searchGenreList');   
-    Route::get('/{genreId}','MoviesController@searchGenre');   
+    Route::get('/movie/list','GenresController@searchGenreList');   
+    Route::get('/{genreId}','GenresController@searchGenre');   
 });
 

@@ -30,37 +30,18 @@ class MoviesController extends Controller
         return $moviesTopRated;
         
     }
-    public function searchMovie(int $movieId) {        
+    public function searchMovieList(int $movieId) {        
         
-        $movie = Http::withToken(config('services.tmdb.token'))
+        $movieList = Http::withToken(config('services.tmdb.token'))
                 ->get("https://api.themoviedb.org/3/movie/$movieId")
                 ->json();
         $movieVideos= Http::withToken(config('services.tmdb.token'))
                 ->get("https://api.themoviedb.org/3/movie/$movieId/videos")
                 ->json();
-        $movieVideosMerge = $movie;
-        $movieVideosMerge['videos'] = $movieVideos;
+        $movieListVideosMerge = $movieList;
+        $movieListVideosMerge['videos'] = $movieVideos;
         
-        return $movieVideosMerge;
+        return $movieListVideosMerge;
         
-    }
-    public function searchGenre(int $genreId) {        
-        
-        $genreList = Http::withToken(config('services.tmdb.token'))
-                ->get("https://api.themoviedb.org/3/genre/$genreId")
-                ->json();
-        
-        return $genreList;
-        
-    }
-    public function searchGenreList() {        
-        
-        $genreList = Http::withToken(config('services.tmdb.token'))
-                ->get("https://api.themoviedb.org/3/genre/movie/list")
-                ->json();
-        
-        return $genreList;
-        
-    }
-    
+    }    
 }
